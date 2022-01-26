@@ -10,15 +10,16 @@
         <Button x:Name="executeButton" Content="Wykonaj" HorizontalAlignment="Left" Height="49" Margin="21,339,0,0" VerticalAlignment="Top" Width="120" Click="ExecuteAlghoritm" />
         <Button x:Name="chooseImageButton" Content="Wybierz Obraz" HorizontalAlignment="Left" Height="51" Margin="21,208,0,0" VerticalAlignment="Top" Width="120" Click="ChooseImage_Click" />
         <Button x:Name="saveImageButton" Content="Zapisz Obraz" HorizontalAlignment="Left" Height="51" Margin="21,264,0,0" VerticalAlignment="Top" Width="120" Click="SaveImage_Click" />
-        <Label x:Name="time" Content="Czas wykonywania:" HorizontalAlignment="Left" Height="28" Margin="232,351,0,0" VerticalAlignment="Top" Width="527" />
-        <RadioButton x:Name="radioButtonCpp" Content=" C#&#xA;" HorizontalAlignment="Left" Margin="84,83,0,0" VerticalAlignment="Top" Checked="RadioButtonCpp_Checked" />
+        <Label x:Name="timeAsm" Content="Czas wykonywania ASM:" HorizontalAlignment="Left" Height="28" Margin="232,351,0,0" VerticalAlignment="Top" Width="527" />
+        <RadioButton x:Name="radioButtonCs" Content=" C#&#xA;" HorizontalAlignment="Left" Margin="84,83,0,0" VerticalAlignment="Top" Checked="RadioButtonCs_Checked" />
         <RadioButton x:Name="radioButtonASM" Content="ASM&#xD;&#xA;" HorizontalAlignment="Left" Margin="35,83,0,0" VerticalAlignment="Top" Height="22" Checked="RadioButtonASM_Checked" />
-        <Image x:Name="orginalImageXaml" Height="287" Margin="211,28,346.6,105" Width="236" ClipToBounds="True" Stretch="UniformToFill" />
-        <Image x:Name="convertedImageXaml" Height="287" Margin="498,28,59.6,105" Width="236" ClipToBounds="True" Stretch="UniformToFill" />
+        <Image x:Name="orginalImageXaml" Height="287" Margin="211,28,346.6,105" Width="236" ClipToBounds="True" />
+        <Image x:Name="convertedImageXaml" Height="287" Margin="498,28,59.6,105" Width="236" ClipToBounds="True" />
         <Label Content="1" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" />
         <Label Content="16" HorizontalAlignment="Left" Margin="141,155,0,0" VerticalAlignment="Top" />
         <Label Content="number of bits:" HorizontalAlignment="Left" Margin="21,127,0,0" VerticalAlignment="Top" Width="94" />
         <Label x:Name="numberBits" Content="1" HorizontalAlignment="Left" Margin="111,127,0,0" VerticalAlignment="Top" Width="26" />
         <Slider x:Name="Slider" HorizontalAlignment="Left" Margin="21,161,0,0" VerticalAlignment="Top" Height="12" Width="120" Maximum="16" ValueChanged="Slider_ValueChanged" Minimum="1" Value="1" />
+        <Label x:Name="timeCs" Content="Czas wykonywania C#:" HorizontalAlignment="Left" Height="28" Margin="232,379,0,0" VerticalAlignment="Top" Width="527" />
     </Grid>
 </Window>

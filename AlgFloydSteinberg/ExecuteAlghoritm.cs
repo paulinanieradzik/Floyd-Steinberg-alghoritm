@@ -13,6 +13,7 @@ namespace AlgFloydSteinberg
         private Bitmap bitmap;
         private BitmapData bmpData;
         private Alghoritm alghoritm;
+        private String time;
 
         private Image ArrayToBitmap(byte[] pixelValues)
         {
@@ -42,17 +43,19 @@ namespace AlgFloydSteinberg
         public Image Dithering(Image sourceImag, int numberOfBits)
         {
             byte[] array = BitmapToArray(sourceImag);
-            //wywołanie dll
             alghoritm.ConvertImage(ref array, numberOfBits, sourceImag.Width, sourceImag.Height);
-            //Bitmap bitmap = (Bitmap)sourceImag.Clone();
-            int w = sourceImag.Width;
-            int h = sourceImag.Height;
+            time = alghoritm.DisplayTime();
             return ArrayToBitmap(array);
         }
 
-        public void SetAlghoritmType(bool isCs)
+        public void SetAlghoritmTypeToCs(bool isCs)
         {
             alghoritm = isCs ? new AlghoritmCs() : (Alghoritm)new AlghoritmAsm();
+        }
+
+        public String DisplayTime()
+        {
+            return time;
         }
     }
 }

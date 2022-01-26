@@ -9,12 +9,9 @@ namespace AlgFloydSteinberg
 {
     public partial class MainWindow : Window
     {
-        [DllImport("../../../../x64/Debug/AlgFloydSteinbergAsm.dll")]
-        private static extern int MyProc1(int a, int b);
-
-        private ImageIOHandler imageIOHandler;
         private Image orginalImage;
         private Image convertedImage;
+        private ImageIOHandler imageIOHandler;
         private ExecuteAlghoritm executeAlghoritm;
         private int numberOfBits;
 
@@ -29,13 +26,9 @@ namespace AlgFloydSteinberg
                 convertedImage = new Bitmap("./gory.png");
             }
             executeAlghoritm = new ExecuteAlghoritm();
-            radioButtonCpp.IsChecked = true;
-            executeAlghoritm.SetAlghoritmType(true);
+            radioButtonCs.IsChecked = true;
+            executeAlghoritm.SetAlghoritmTypeToCs(true);
             numberOfBits = (int)Slider.Value;
-
-            //int x = 1;
-            //int y = 1;
-            //int z = MyProc1(x, y);
         }
 
         private void ExecuteAlghoritm(object sender, RoutedEventArgs e)
@@ -44,6 +37,14 @@ namespace AlgFloydSteinberg
             {
                 convertedImage = executeAlghoritm.Dithering(orginalImage, numberOfBits);
                 convertedImageXaml.Source = imageIOHandler.BitmapToImageSource((Bitmap)convertedImage);
+                if (radioButtonCs.IsChecked == true)
+                {
+                    timeCs.Content += " " + executeAlghoritm.DisplayTime() + "ms";
+                }
+                else
+                {
+                    timeAsm.Content += " " + executeAlghoritm.DisplayTime() + "ms";
+                }
             }
         }
 
@@ -59,19 +60,20 @@ namespace AlgFloydSteinberg
 
         private void SaveImage_Click(object sender, RoutedEventArgs e)
         {
-            //convertedImage.Source
-            orginalImage = imageIOHandler.ConvertImage(orginalImage, numberOfBits);
-            orginalImageXaml.Source = imageIOHandler.BitmapToImageSource((Bitmap)orginalImage);
+            if (convertedImage != null)
+            {
+                imageIOHandler.SaveImage(convertedImage);
+            }
         }
 
         private void RadioButtonASM_Checked(object sender, RoutedEventArgs e)
         {
-            executeAlghoritm.SetAlghoritmType(false);
+            executeAlghoritm.SetAlghoritmTypeToCs(false);
         }
 
-        private void RadioButtonCpp_Checked(object sender, RoutedEventArgs e)
+        private void RadioButtonCs_Checked(object sender, RoutedEventArgs e)
         {
-            executeAlghoritm.SetAlghoritmType(true);
+            executeAlghoritm.SetAlghoritmTypeToCs(true);
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
