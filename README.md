@@ -38,7 +38,7 @@ To use this this application do the following steps:
 
 ### Programing environment
 
--Visual Studio 2022
+-Visual Studio
 
 ### Status
 
